@@ -9,11 +9,17 @@ const App = {
 		};
 	},
 	created() {
-		this.game = new SheepsheadGame([]);
-		this.cards = this.game.cards;
-		const [hands, blind] = this.game.deal();
-		this.hands = hands;
-		this.blind = blind;
+		try {
+			this.game = new SheepsheadGame([]);
+			this.cards = this.game.cards;
+			const [hands, blind] = this.game.deal();
+			this.hands = hands;
+			this.blind = blind;
+
+			console.log("Hands: ", this.hands);
+		} catch (error) {
+			console.error(error);
+		}
 	},
 	computed: {
 		hasHands() {

@@ -63,33 +63,14 @@ export class Card {
 		this.suit = suit;
 		this.value = value;
 	}
-
-	/**
-	 * Prints the card's details to the console
-	 */
-	print() {
-		console.log(this.toString());
-	}
-
-	/**
-	 * Returns a string representation of the card
-	 * @returns A String containing the suit symbol and the card's value
-	 */
-	toString() {
-		let value = this.value;
-		if (value === VALUES.JACK) value = "Jack";
-		if (value === VALUES.QUEEN) value = "Queen";
-		if (value === VALUES.KING) value = "King";
-		if (value === VALUES.ACE) value = "Ace";
-		let suit = this.suit;
-		if (suit === SUITS.CLUBS) suit = "♣";
-		if (suit === SUITS.SPADES) suit = "♠";
-		if (suit === SUITS.HEARTS) suit = "♡";
-		if (suit === SUITS.DIAMONDS) suit = "♢";
-		return `${suit} ${value}`;
-	}
 }
 
+/**
+ * Maps the input suit to its icon representation (e.g., CLUBS => '♣')
+ *
+ * @param {String} suit The suit to map
+ * @returns The icon corresponding to the input suit
+ */
 export function suitToIcon(suit) {
 	switch (suit) {
 		case SUITS.CLUBS:
@@ -105,6 +86,12 @@ export function suitToIcon(suit) {
 	}
 }
 
+/**
+ * Maps the input value to its character representation (e.g., 13 => 'K')
+ *
+ * @param {Number} value The value to map
+ * @returns The character combination representing the input value
+ */
 export function valueToCharacter(value) {
 	switch (value) {
 		case VALUES.TWO:

@@ -27,7 +27,7 @@ export default class SheepsheadGame {
 	}
 
 	/**
-	 * Shuffle the deck
+	 * Shuffles the deck of cards in place
 	 */
 	shuffle() {
 		// Determine how many times to swap cards
@@ -47,10 +47,19 @@ export default class SheepsheadGame {
 		}
 	}
 
+	/**
+	 * Deals out the current state of the cards property to five players, leaving two
+	 * cards in the blind.
+	 *
+	 * @returns A list, containing the array of player hands in the first index and the
+	 * 			contents of the blind in the second index.
+	 */
 	deal() {
 		const playerHands = [[], [], [], [], []];
 		let numCards = this.cards.length;
 		let i = 0;
+
+		// Deal two cards to each player at a time
 		while (i < numCards - 2) {
 			for (let j = 0; j < playerHands.length; j++) {
 				playerHands[j].push(this.cards[i]);
@@ -59,6 +68,7 @@ export default class SheepsheadGame {
 			}
 		}
 
+		// Put the last two cards in the blind and return the results
 		const blind = [this.cards[numCards - 2], this.cards[(numCards = 1)]];
 		return [playerHands, blind];
 	}

@@ -1,25 +1,24 @@
-import PlayingCard from "./components/playing-card.js";
-import SheepsheadGame from "./modules/sheepsheadGame.js";
+import PlayingCard from "../components/playing-card.js";
+import SheepsheadGame from "./sheepsheadGame.js";
+
 const App = {
 	data() {
 		return {
 			hands: [],
 			blind: [],
+			cards: [],
 			game: null,
 		};
 	},
 	created() {
-		try {
-			this.game = new SheepsheadGame([]);
-			this.cards = this.game.cards;
-			const [hands, blind] = this.game.deal();
-			this.hands = hands;
-			this.blind = blind;
+		// Create a new game & save the cards list
+		this.game = new SheepsheadGame([]);
+		this.cards = this.game.cards;
 
-			console.log("Hands: ", this.hands);
-		} catch (error) {
-			console.error(error);
-		}
+		// Deal out the players' hands and the blind
+		const [hands, blind] = this.game.deal();
+		this.hands = hands;
+		this.blind = blind;
 	},
 	computed: {
 		hasHands() {

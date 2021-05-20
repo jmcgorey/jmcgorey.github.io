@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hand of Cards - Vue</title>
+
+		<!-- Include the latest version of Vue -->
+		<script src="https://unpkg.com/vue@next"></script>
+
+		<!-- Include our stylesheet -->
+		<link rel="stylesheet" type="text/css" href="cards.css" />
+	</head>
+	<body>
+		<div id="app">
+			<!-- Render the list of cards -->
+			<h1>Player 1</h1>
+			<section class="card-list">
+				<playing-card
+					v-for="card in player1"
+					:key="card.id"
+					:suit="card.suit"
+					:value="card.value"
+				></playing-card>
+			</section>
+			<h1>Player 2</h1>
+			<section class="card-list">
+				<playing-card
+					v-for="card in player2"
+					:key="card.id"
+					:suit="card.suit"
+					:value="card.value"
+				></playing-card>
+			</section>
+			<h1>Player 3</h1>
+			<section class="card-list">
+				<playing-card
+					v-for="card in player3"
+					:key="card.id"
+					:suit="card.suit"
+					:value="card.value"
+				></playing-card>
+			</section>
+			<h1>Player 4</h1>
+			<section class="card-list">
+				<playing-card
+					v-for="card in player4"
+					:key="card.id"
+					:suit="card.suit"
+					:value="card.value"
+				></playing-card>
+			</section>
+			<h1>Player 5</h1>
+			<section class="card-list">
+				<playing-card
+					v-for="card in player5"
+					:key="card.id"
+					:suit="card.suit"
+					:value="card.value"
+				></playing-card>
+			</section>
+			<h1>Blind</h1>
+			<section class="card-list">
+				<playing-card v-for="card in blind" :key="card.id" :suit="card.suit" :value="card.value"></playing-card>
+			</section>
+		</div>
+
+		<script src="./modules/game.js" type="module"></script>
+	</body>
+</html>

@@ -69,7 +69,7 @@ export default class SheepsheadGame {
 		}
 
 		// Put the last two cards in the blind and return the results
-		const blind = [this.cards[numCards - 2], this.cards[(numCards = 1)]];
+		const blind = [this.cards[numCards - 2], this.cards[(numCards - 1)]];
 		return [playerHands, blind];
 	}
 }
